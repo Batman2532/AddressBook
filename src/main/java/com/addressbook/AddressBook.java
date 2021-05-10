@@ -1,14 +1,38 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBook {
-    private static ArrayList<Contacts> person = new ArrayList<Contacts>();
+    public static ArrayList<Contacts> person = new ArrayList<Contacts>();
     static Scanner sc = new Scanner(System.in);
+    public static Map<String, ArrayList<Contacts>> addressBookListMap = new HashMap<String, ArrayList<Contacts>>();
 
     public static void main(String[] args){
         System.out.println("Welcome to Address Book System");
+        boolean flag = true;
+        while(flag) {
+            System.out.println("1: Add new address book");
+            System.out.println("2: exit");
+            int option=sc.nextInt();
+            switch (option){
+                case 1:
+                    System.out.println("Enter the name of the address book");
+                    String addressBookName = sc.next();
+                    if(addressBookListMap.containsKey(addressBookName)){
+                        System.out.println("this address book already exists ");
+                    }else{
+                        addressBookListMap.put(addressBookName,person);
+                        addAddressBook();
+                    }
+            }
+        }
+
+    }
+
+    private static void addAddressBook() {
         boolean flag = true;
         while(flag) {
             System.out.println("Enter 1 to add contact: ");
