@@ -4,62 +4,40 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
-    public static String firstName;
-    public static String lastName;
-    public static String address;
-    public static String city;
-    public static String state;
-    public static int zipCode;
-    public static int phoneNumber;
-    public static String email;
+    private static ArrayList<Contacts> person = new ArrayList<Contacts>();
+    static Scanner sc = new Scanner(System.in);
 
-    public AddressBook(String firstName, String lastName, String address,String city,String state,int zipCode,int phoneNumber,String email){
-        this.firstName = firstName;
-        this.lastName =lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zipCode = zipCode;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
-
-    public void add(){
-        Scanner sc = new Scanner(System.in);
+    public static void addPerson(){
+        String firstName,lastName,address,city,state,email;
+        int zipCode,phoneNumber;
         System.out.println("Enter First Name");
-        this.firstName = sc.nextLine();
+        firstName = sc.next();
         System.out.println("Enter Last Name");
-        this.lastName = sc.nextLine();
+        lastName = sc.next();
         System.out.println("Enter Address");
-        this.address = sc.nextLine();
+        address = sc.next();
         System.out.println("Enter City");
-        this.city = sc.nextLine();
+        city = sc.next();
         System.out.println("Enter State");
-        this.state = sc.nextLine();
+        state = sc.next();
         System.out.println("Enter Zipcode");
-        this.zipCode = sc.nextInt();
+        zipCode = sc.nextInt();
         System.out.println("Enter Phone Number");
-        this.phoneNumber = sc.nextInt();
+        phoneNumber = sc.nextInt();
         System.out.println("Enter Email");
-        this.email = sc.next();
-    }
-    public String toString(){
-        return ("The entered details are: \nfirst name " +firstName+"\nlast name "+ lastName+ "\nAddress "+address+"\ncity "+city+"\nstate " +state+"\nzip code "+zipCode+"\nphone number "+phoneNumber+"\nemail "+email);
+        email = sc.next();
+        Contacts ab = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+        System.out.println(ab);
+        person.add(ab);
     }
 
     public static void main(String[] args){
         System.out.println("Welcome to Address Book System");
-        ArrayList<AddressBook> contacts = new ArrayList<>();
-        AddressBook ab = new AddressBook(firstName, lastName, address, city, state, zipCode,phoneNumber,email);
         System.out.println("Enter 1 to add contact: ");
-        Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch(choice) {
             case 1:
-                ab.add();
-                ab.toString();
-                contacts.add(ab);
-                System.out.println(contacts.get(0));
+                addPerson();
                 break;
             default:
                 System.out.println("Enter valid number");
