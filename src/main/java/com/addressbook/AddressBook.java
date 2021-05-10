@@ -135,25 +135,29 @@ public class AddressBook {
 
     public static void addContact(){
         String firstName,lastName,address,city,state,email;
-        int zipCode;
+        int zipCode, numberOfContacts;
         long phoneNumber;
-        System.out.println("Enter First Name");
-        firstName = sc.next();
-        System.out.println("Enter Last Name");
-        lastName = sc.next();
-        System.out.println("Enter Address");
-        address = sc.next();
-        System.out.println("Enter City");
-        city = sc.next();
-        System.out.println("Enter State");
-        state = sc.next();
-        System.out.println("Enter Zipcode");
-        zipCode = sc.nextInt();
-        System.out.println("Enter Phone Number");
-        phoneNumber = sc.nextLong();
-        System.out.println("Enter Email");
-        email = sc.next();
-        Contacts contacts = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-        person.add(contacts);
+        System.out.println("enter the number of contacts you want to enter");
+        numberOfContacts= sc.nextInt();
+        for (int i = 0; i <numberOfContacts ; i++) {
+            System.out.println("Enter First Name");
+            firstName = sc.next();
+            System.out.println("Enter Last Name");
+            lastName = sc.next();
+            System.out.println("Enter Address");
+            address = sc.next();
+            System.out.println("Enter City");
+            city = sc.next();
+            System.out.println("Enter State");
+            state = sc.next();
+            System.out.println("Enter Zipcode");
+            zipCode = sc.nextInt();
+            System.out.println("Enter Phone Number");
+            phoneNumber = sc.nextLong();
+            System.out.println("Enter Email");
+            email = sc.next();
+            Contacts contacts = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+            person.add(contacts);
+        }
     }
 }
