@@ -3,8 +3,9 @@ package com.addressbook;
 public class Contacts {
 
     String firstName,lastName,address,city,state,email;
-    int zipCode,phoneNumber;
-    public  Contacts(String firstName, String lastName, String address, String city, String state, int zipCode, int phoneNumber, String email) {
+    int zipCode;
+    long phoneNumber;
+    public  Contacts(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName =lastName;
         this.address = address;
@@ -50,7 +51,7 @@ public class Contacts {
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
     public void setPhoneNumber(int phoneNumber) {
