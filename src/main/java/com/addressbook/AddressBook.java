@@ -1,9 +1,6 @@
 package com.addressbook;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
@@ -142,6 +139,23 @@ public class AddressBook {
 
         for (Contacts contact : filterSet) {
             System.out.println("The Duplicate Contact is: " + contact.getFirstName() + " " + contact.getLastName());
+        }
+    }
+
+    public void getPersonNameByState(String State) {
+        List<Contacts> list  = person.stream().filter(p ->p.getCity().equals(State)).collect(Collectors.toList());
+        for(Contacts contact: list){
+            System.out.println("First Name: "+contact.getFirstName());
+            System.out.println("Last Name: "+contact.getLastName());
+        }
+
+    }
+
+    public void getPersonNameByCity(String cityName) {
+        List<Contacts> list  = person.stream().filter(p ->p.getCity().equals(cityName)).collect(Collectors.toList());
+        for(Contacts contact: list){
+            System.out.println("First Name: "+contact.getFirstName());
+            System.out.println("Last Name: "+contact.getLastName());
         }
     }
 }

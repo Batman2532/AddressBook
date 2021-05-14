@@ -16,7 +16,9 @@ main class to store new address book or check if the address book already there
         while (flag) {
             System.out.println("1: Add new address book");
             System.out.println("2:Find Duplicate Entry in Address Book");
-            System.out.println("3: exit");
+            System.out.println("3.Search Contact from a city");
+            System.out.println("4.Search Contact from a State");
+            System.out.println("5.Exit");
             int option = sc.nextInt();
             switch (option) {//getting option from user
                 case 1:
@@ -35,13 +37,24 @@ main class to store new address book or check if the address book already there
                         System.out.println("Address Book Name: " + entry.getKey());
                         value.checkDuplicate();
                     }
-                case 3: {
+                case 3:
+                    System.out.println("Enter Name of City: ");
+                    String CityName = sc.next();
+                    addressBookMain.searchPersonByCity(CityName);
+                    break;
+
+                case 4:{
+                    System.out.println("Enter Name of State: ");
+                    String StateName = sc.next();
+                    addressBookMain.searchPersonByState(StateName);
+                    break;
+                }
+                case 5:
                     flag = false;
                     break;
                 }
             }
         }
-    }
 /*
 addAddressBook method to add,edit and delete in address book
  */
@@ -70,10 +83,23 @@ addAddressBook method to add,edit and delete in address book
                     System.out.println("Enter valid number");
                     break;
             }
-            addressBookListMap.put(addressBookName, addressBook);
-            System.out.println("Address Book Added Successfully");
+        }
+        addressBookListMap.put(addressBookName, addressBook);
+        System.out.println("Address Book Added Successfully");
+    }
+    private void searchPersonByState(String stateName) {
+        for(Map.Entry<String,AddressBook> entry: addressBookListMap.entrySet()){
+            AddressBook value = entry.getValue();
+            System.out.println("The Address Book: "+entry.getKey());
+            value.getPersonNameByState(stateName);
         }
     }
 
-
+    private void searchPersonByCity(String cityName) {
+        for(Map.Entry<String,AddressBook> entry: addressBookListMap.entrySet()){
+            AddressBook value = entry.getValue();
+            System.out.println("The Address Book: "+entry.getKey());
+            value.getPersonNameByCity(cityName);
+        }
+    }
 }
