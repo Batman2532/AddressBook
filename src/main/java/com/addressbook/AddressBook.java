@@ -1,69 +1,15 @@
 package com.addressbook;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class AddressBook {
     public static ArrayList<Contacts> person = new ArrayList<Contacts>();//initializing array list
-    static Scanner sc = new Scanner(System.in); //initializing scanner class
-    public static Map<String, ArrayList<Contacts>> addressBookListMap = new HashMap<String, ArrayList<Contacts>>();//initializing hashmap
-/*
-main class to store new address book or check if the address book already there
- */
-    public static void main(String[] args){
-        System.out.println("Welcome to Address Book System");
-        boolean flag = true;//declaring flag
-        while(flag) {
-            System.out.println("1: Add new address book");
-            System.out.println("2: exit");
-            int option = sc.nextInt();
-            switch (option) {//getting option from user
-                case 1:
-                    System.out.println("Enter the name of the address book");
-                    String addressBookName = sc.next();//getting address boo name from user
-                    if (addressBookListMap.containsKey(addressBookName)) {//checking if the same name address book is already there
-                        System.out.println("this address book already exists ");
-                    } else {
-                        addressBookListMap.put(addressBookName, person);//storing address book in map
-                        addAddressBook();
-                    }
-            }
-        }
-    }
-/*
-addAddressBook method to add,edit and delete in address book
- */
-    private static void addAddressBook() {
-        boolean flag = true;
-        while(flag) {
-            System.out.println("Enter 1 to add contact: ");
-            System.out.println("Enter 2 to edit contact: ");
-            System.out.println("Enter 3 to delete contact: ");
-            System.out.println("Enter 4 to exit");
-            int choice = sc.nextInt();//getting choice from user to add,edit or delete
-            switch (choice) {
-                case 1:
-                    addContact();// calling addContact method
-                    break;
-                case 2:
-                    editContact();// calling editContact method
-                    break;
-                case 3:
-                    deleteContact();// calling delete contact method
-                    break;
-                case 4:
-                    flag = !flag;
-                    break;
-                default:
-                    System.out.println("Enter valid number");
-                    break;
-            }
-        }
-    }
-
-    private static void deleteContact() {
+    public static Scanner sc = new Scanner(System.in);
+    static void deleteContact() {
         System.out.println("enter first name to delete contacts");
         String firstName = sc.next(); // getting details from user to delete contact
         int flag = 0;
@@ -81,7 +27,7 @@ addAddressBook method to add,edit and delete in address book
         }
     }
 
-    private static void editContact() {
+    static void editContact() {
         System.out.println("enter first name to edit contacts");
         String firstName = sc.next();
         int flag = 0;
@@ -188,6 +134,14 @@ addAddressBook method to add,edit and delete in address book
             person.add(contacts);//storing  contacts to array list
         }
     }
-}
 
+    // Check Duplicate Entry
+    public void checkDuplicate() {
+        Set<String> ContactSet = new HashSet<>();
+        Set<Contacts> filterSet = person.stream().filter(n -> !ContactSet.add(n.getFirstName())).collect(Collectors.toSet());
+
+        for (Contacts contact : filterSet) {
+            System.out.println("The Duplicate Contact is: " + contact.getFirstName() + " " + contact.getLastName());
+        }
+    }
 }
