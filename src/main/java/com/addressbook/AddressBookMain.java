@@ -18,7 +18,9 @@ main class to store new address book or check if the address book already there
             System.out.println("2:Find Duplicate Entry in Address Book");
             System.out.println("3.Search Contact from a city");
             System.out.println("4.Search Contact from a State");
-            System.out.println("5.Exit");
+            System.out.println("5.View contact By State Using State and Person HashMap");
+            System.out.println("6.View Contact by city Using City and Person HashMap");
+            System.out.println("7.Exit");
             int option = sc.nextInt();
             switch (option) {//getting option from user
                 case 1:
@@ -39,17 +41,29 @@ main class to store new address book or check if the address book already there
                     }
                 case 3:
                     System.out.println("Enter Name of City: ");
-                    String CityName = sc.next();
-                    addressBookMain.searchPersonByCity(CityName);
+                    String cityName = sc.next();
+                    addressBookMain.searchPersonByCity(cityName);
                     break;
 
                 case 4:{
                     System.out.println("Enter Name of State: ");
-                    String StateName = sc.next();
-                    addressBookMain.searchPersonByState(StateName);
+                    String stateName = sc.next();
+                    addressBookMain.searchPersonByState(stateName);
                     break;
                 }
                 case 5:
+                    System.out.println("Enter Name of State: ");
+                    String stateName1 = sc.next();
+                    addressBookMain.viewPersonByStateUsingHashmap(stateName1);
+                    break;
+
+                case 6:
+                    System.out.println("Enter Name of City: ");
+                    String cityName1 = sc.next();
+                    addressBookMain.viewPersonByCityUsingHashMap(cityName1);
+                    break;
+
+                case 7:
                     flag = false;
                     break;
                 }
@@ -100,6 +114,27 @@ addAddressBook method to add,edit and delete in address book
             AddressBook value = entry.getValue();
             System.out.println("The Address Book: "+entry.getKey());
             value.getPersonNameByCity(cityName);
+        }
+    }
+
+
+    private void viewPersonByStateUsingHashmap(String stateName) {
+        for (Map.Entry<String, AddressBook> entry : addressBookListMap.entrySet()) {
+            AddressBook value = entry.getValue();
+            ArrayList<Contacts> contacts = value.personByState.entrySet().stream().filter(findState -> findState.getKey().equals(stateName)).map(Map.Entry::getValue).findFirst().orElse(null);
+            for(Contacts contact: contacts){
+                System.out.println("First Name: "+contact.getFirstName()+" Last Name: "+ contact.getLastName());
+            }
+        }
+    }
+
+    private void viewPersonByCityUsingHashMap(String cityName) {
+        for (Map.Entry<String, AddressBook> entry : addressBookListMap.entrySet()) {
+            AddressBook value = entry.getValue();
+            ArrayList<Contacts> contacts = value.personByCity.entrySet().stream().filter(findCity -> findCity.getKey().equals(cityName)).map(Map.Entry::getValue).findFirst().orElse(null);
+            for(Contacts contact: contacts){
+                System.out.println("First Name: "+contact.getFirstName()+" Last Name: "+ contact.getLastName());
+            }
         }
     }
 }
