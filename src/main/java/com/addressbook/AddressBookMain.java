@@ -1,6 +1,7 @@
 package com.addressbook;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookMain {
     private static AddressBook addressBook = new AddressBook();
@@ -22,7 +23,8 @@ main class to store new address book or check if the address book already there
             System.out.println("6.View Contact by city Using City and Person HashMap");
             System.out.println("7.Count Contact By State");
             System.out.println("8.Count Contact By City");
-            System.out.println("9.Exit");
+            System.out.println("9.Sort and Print in Alphabetically Order");
+            System.out.println("10.Exit");
             int option = sc.nextInt();
             switch (option) {//getting option from user
                 case 1:
@@ -78,6 +80,10 @@ main class to store new address book or check if the address book already there
                     break;
 
                 case 9:
+                    System.out.println("Sort Contact");
+                    addressBookMain.sortContactByName();
+
+                case 10:
                     flag = false;
                     break;
                 }
@@ -184,5 +190,16 @@ addAddressBook method to add,edit and delete in address book
             }
         }
         System.out.println("Total number of people in this city "+city+": "+countPersonInCity);
+    }
+    private void sortContactByName() {
+        for (Map.Entry<String,AddressBook>entry:addressBookListMap.entrySet()){
+            AddressBook value = entry.getValue();
+            List<Contacts> sortedList = value.person.stream().sorted(Comparator.comparing(Contacts::getFirstName)).collect(Collectors.toList());
+
+            for(Contacts contact:sortedList){
+                System.out.println("First Name: "+contact.getFirstName());
+                System.out.println("Last Name: "+contact.getLastName());
+            }
+        }
     }
 }
