@@ -24,7 +24,11 @@ main class to store new address book or check if the address book already there
             System.out.println("7.Count Contact By State");
             System.out.println("8.Count Contact By City");
             System.out.println("9.Sort and Print in Alphabetically Order");
-            System.out.println("10.Exit");
+            System.out.println("10.Sort Contact By City");
+            System.out.println("11.Sort Contact By State");
+            System.out.println("12.Sort Contact By Zip Code");
+            System.out.println("13.Exit");
+
             int option = sc.nextInt();
             switch (option) {//getting option from user
                 case 1:
@@ -84,9 +88,23 @@ main class to store new address book or check if the address book already there
                     addressBookMain.sortContactByName();
 
                 case 10:
+                    addressBookMain.sortContactByCity();
+                    break;
+
+                case 11:
+                    addressBookMain.sortContactByState();
+                    break;
+
+                case 12:
+                    addressBookMain.sortContactByZipCode();
+                    break;
+
+                case 13:
+
                     flag = false;
                     break;
-                }
+
+            }
             }
         }
 /*
@@ -195,6 +213,42 @@ addAddressBook method to add,edit and delete in address book
         for (Map.Entry<String,AddressBook>entry:addressBookListMap.entrySet()){
             AddressBook value = entry.getValue();
             List<Contacts> sortedList = value.person.stream().sorted(Comparator.comparing(Contacts::getFirstName)).collect(Collectors.toList());
+
+            for(Contacts contact:sortedList){
+                System.out.println("First Name: "+contact.getFirstName());
+                System.out.println("Last Name: "+contact.getLastName());
+            }
+        }
+    }
+
+    private void sortContactByZipCode() {
+        for (Map.Entry<String,AddressBook>entry:addressBookListMap.entrySet()){
+            AddressBook value = entry.getValue();
+            List<Contacts> sortedList = value.person.stream().sorted(Comparator.comparing(Contacts::getZipCode)).collect(Collectors.toList());
+
+            for(Contacts contact:sortedList){
+                System.out.println("First Name: "+contact.getFirstName());
+                System.out.println("Last Name: "+contact.getLastName());
+            }
+        }
+    }
+
+    private void sortContactByState() {
+        for (Map.Entry<String,AddressBook>entry:addressBookListMap.entrySet()){
+            AddressBook value = entry.getValue();
+            List<Contacts> sortedList = value.person.stream().sorted(Comparator.comparing(Contacts::getState)).collect(Collectors.toList());
+
+            for(Contacts contact:sortedList){
+                System.out.println("First Name: "+contact.getFirstName());
+                System.out.println("Last Name: "+contact.getLastName());
+            }
+        }
+    }
+
+    private void sortContactByCity() {
+        for (Map.Entry<String,AddressBook>entry:addressBookListMap.entrySet()){
+            AddressBook value = entry.getValue();
+            List<Contacts> sortedList = value.person.stream().sorted(Comparator.comparing(Contacts::getCity)).collect(Collectors.toList());
 
             for(Contacts contact:sortedList){
                 System.out.println("First Name: "+contact.getFirstName());
