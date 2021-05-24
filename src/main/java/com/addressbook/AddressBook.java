@@ -1,5 +1,6 @@
 package com.addressbook;
 
+import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
@@ -8,10 +9,12 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.opencsv.exceptions.CsvValidationException;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -171,6 +174,11 @@ public class AddressBook {
         } catch (IOException | CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
             e.printStackTrace();
         }
+        try {
+            writeDataInJSon();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return person;
     }
     public void writeData() throws IOException {
@@ -215,6 +223,39 @@ public class AddressBook {
             }
         } catch (CsvValidationException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void writeDataInJSon() throws IOException {
+        {
+            Path filePath = Paths.get(
+                    "/home/saurabh/IdeaProjects/AddressBook/src/main/resources/contacts.json");
+            Gson gson = new Gson();
+            String json = gson.toJson(person);
+            FileWriter writer = new FileWriter(String.valueOf(filePath));
+            writer.write(json);
+            writer.close();
+        }
+    }
+
+    // Read from JSON
+    public void readDataFromJson() throws IOException {
+        ArrayList<Contacts> contactList = null;
+        Path filePath = Paths.get(
+                "/home/saurabh/IdeaProjects/AddressBook/src/main/resources/contacts.json");
+        try (Reader reader = Files.newBufferedReader(filePath);) {
+            Gson gson = new Gson();
+            contactList = new ArrayList<Contacts>(Arrays.asList(gson.fromJson(reader, Contacts[].class)));
+            for (Contacts contact : contactList) {
+                System.out.println("Firstname : " + contact.getFirstName());
+                System.out.println("Lastname : " + contact.getLastName());
+                System.out.println("Address : " + contact.getAddress());
+                System.out.println("City : " + contact.getCity());
+                System.out.println("State : " + contact.getState());
+                System.out.println("Zip : " + contact.getZipCode());
+                System.out.println("Phone number : " + contact.getPhoneNumber());
+                System.out.println("Email : " + contact.getEmail());
+            }
         }
     }
 
