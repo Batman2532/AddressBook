@@ -1,17 +1,26 @@
 package com.addressbook;
 
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
-    public static ArrayList<Contacts> person = new ArrayList<Contacts>();//initializing array list
+    public static ArrayList<Contacts> person = new ArrayList<>();//initializing array list
     public static Scanner sc = new Scanner(System.in);
     public HashMap<String, ArrayList<Contacts>> personByState;
     public HashMap<String, ArrayList<Contacts>> personByCity;
+    public static String ADDRESSBOOK_FILE_NAME = "addressBook_file.txt";
 
     public AddressBook() {
-        personByCity = new HashMap<String, ArrayList<Contacts>>();
-        personByState = new HashMap<String, ArrayList<Contacts>>();
+        personByCity = new HashMap<>();
+        personByState = new HashMap<>();
     }
     static void deleteContact() {
         System.out.println("enter first name to delete contacts");
@@ -110,7 +119,7 @@ public class AddressBook {
         }
     }
 
-    public ArrayList<Contacts> addContact(){
+    public List<Contacts> addContact() {
         //initializing variables
         String firstName,lastName,address,city,state,email;
         int zipCode, numberOfContacts;
@@ -137,15 +146,26 @@ public class AddressBook {
             email = sc.next();
             Contacts contacts = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);//creating object of contacts
             person.add(contacts);//storing  contacts to array list
+            System.out.println("outside method..."+person);
             if(!personByState.containsKey(state)){
-                personByState.put(state,new ArrayList<Contacts>());
+                personByState.put(state, new ArrayList<>());
             }
             personByState.get(state).add(contacts);
 
             if(!personByCity.containsKey(city)){
-                personByCity.put(city,new ArrayList<Contacts>());
+                personByCity.put(city, new ArrayList<>());
             }
             personByCity.get(city).add(contacts);
+        }
+        try {
+            writeData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            writeDataToCSV();
+        } catch (IOException | CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
+            e.printStackTrace();
         }
         return person;
     }
@@ -176,4 +196,52 @@ public class AddressBook {
             System.out.println("Last Name: "+contact.getLastName());
         }
     }
+
+    public void writeData() throws IOException {
+        System.out.println(person);
+
+//                String cont = contacts.toString();
+//        try {
+//            FileWriter myWriter = new FileWriter("batman.txt");
+//            myWriter.write(cont);
+//            myWriter.close();
+//            System.out.println("Successfully wrote to the file.");
+//        } catch (IOException e) {
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
+        StringBuffer contactBuffer = new StringBuffer();
+        person.forEach(contact -> {
+            String contactDataString = contact.toString().concat("\n");
+            System.out.println(contactDataString);
+            contactBuffer.append(contactDataString);
+        });
+        try {
+            Files.write(Paths.get(ADDRESSBOOK_FILE_NAME), contactBuffer.toString().getBytes());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readData() {
+        try {
+            Files.lines(new File("addressBook-file.txt").toPath()).map(String::trim).forEach(System.out::println);
+
+        } catch (IOException ignored) {
+
+        }
+    }
+
+    // write data to CSV file
+    public void writeDataToCSV() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
+        try (Writer writer = Files.newBufferedWriter(Paths.get("/home/saurabh/IdeaProjects/AddressBook/src/main/resources/contacts.csv"));) {
+            StatefulBeanToCsvBuilder<Contacts> builder = new StatefulBeanToCsvBuilder<>(writer);
+            StatefulBeanToCsv<Contacts> beanWriter = builder.build();
+            beanWriter.write(person);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
