@@ -1,1 +1,1 @@
-com.addressbook.Contacts@5e2de80c
+ContactDetails [firstName=sau, lastName=char, address=mbt, city=ngp, state=mh, email=char@yahoo.com, zip=440030, phoneNumber=7788994455]

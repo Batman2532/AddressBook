@@ -61,11 +61,17 @@ public class Contacts {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactDetails [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
+                + city + ", state=" + state + ", email=" + email + ", zip=" + zipCode + ", phoneNumber=" + phoneNumber
+                + "]";
     }
 }

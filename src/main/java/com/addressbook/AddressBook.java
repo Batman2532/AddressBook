@@ -9,10 +9,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.opencsv.exceptions.CsvValidationException;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -192,6 +189,14 @@ public class AddressBook {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public void readData() {
+        try {
+            Files.lines(new File("addressBook.txt").toPath()).map(String::trim).forEach(System.out::println);
+
+        } catch (IOException ignored) {
+
         }
     }
 

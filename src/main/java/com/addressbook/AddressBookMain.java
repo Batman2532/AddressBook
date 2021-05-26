@@ -119,7 +119,8 @@ addAddressBook method to add,edit and delete in address book
             System.out.println("Enter 3 to delete contact: ");
             System.out.println("Enter 4 to display contact from csv file");
             System.out.println("Enter 5 to read Contacts from json file");
-            System.out.println("Enter 6 to exit");
+            System.out.println("Enter 6 to read Contacts from .txt file");
+            System.out.println("Enter 7 to exit");
             int choice = sc.nextInt();//getting choice from user to add,edit or delete
             switch (choice) {
                 case 1:
@@ -146,6 +147,9 @@ addAddressBook method to add,edit and delete in address book
                     }
                     break;
                 case 6:
+                    addressBook.readData();// calling readData method
+                    break;
+                case 7:
                     flag = !flag;
                     break;
                 default:
