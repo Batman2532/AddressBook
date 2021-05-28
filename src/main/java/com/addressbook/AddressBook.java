@@ -200,16 +200,6 @@ public class AddressBook {
     public void writeData() throws IOException {
         System.out.println(person);
 
-//                String cont = contacts.toString();
-//        try {
-//            FileWriter myWriter = new FileWriter("batman.txt");
-//            myWriter.write(cont);
-//            myWriter.close();
-//            System.out.println("Successfully wrote to the file.");
-//        } catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
         StringBuffer contactBuffer = new StringBuffer();
         person.forEach(contact -> {
             String contactDataString = contact.toString().concat("\n");
