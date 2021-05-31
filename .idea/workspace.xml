@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05775293-fc78-47ab-856f-c715feb479e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" afterDir="false" />
@@ -52,20 +53,7 @@
       <recent name="com.addressbookjdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange">
-    <configuration name="AddressBookMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.addressbook.AddressBookMain" />
-      <module name="AddressBook.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.addressbook.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.AddressbookJDBCTest">
     <configuration name="AddressbookJDBCTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -129,6 +117,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldReturnCountOfCity" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldReturnCountOfCity&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -152,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange" />
         <item itemvalue="Gradle.AddressbookJDBCTest" />
+        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldReturnCountOfCity" />
+        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount" />
-        <item itemvalue="Application.AddressBookMain" />
       </list>
     </recent_temporary>
   </component>

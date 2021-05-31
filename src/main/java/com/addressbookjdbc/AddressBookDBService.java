@@ -101,12 +101,20 @@ public class AddressBookDBService {
         } catch (SQLException e) {
             throw new AddressBookException(e.getMessage(), AddressBookException.ExceptionType.CONNECTION_FAILED);
         }
-        System.out.println(addressBookData);
         return addressBookData;
     }
 
     public List<AddressBookData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate) throws AddressBookException {
         String sql = String.format("SELECT * FROM  addressbook WHERE date_added BETWEEN '%s' AND '%s';", Date.valueOf(startDate), Date.valueOf(endDate));
         return this.getAddressBookDataUsingDB(sql);
+    }
+
+    public int getCountByCity(String city) throws AddressBookException {
+        int count = 0;
+        String sql = String.format("select * from addressbook where city = '%s' ;", city);
+        addressBookData=this.getAddressBookDataUsingDB(sql);
+        count = (int) addressBookData.stream().count();
+
+        return count;
     }
 }

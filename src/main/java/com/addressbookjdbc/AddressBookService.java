@@ -42,7 +42,12 @@ public class AddressBookService {
                 .findFirst().orElse(null);
     }
 
-    public List<AddressBookData> readEmployeePayrollDataForDataRange(LocalDate startDate, LocalDate endDate) throws AddressBookException {
+    public List<AddressBookData> readAddressbookDataForDataRange(LocalDate startDate, LocalDate endDate) throws AddressBookException {
         return addressBookDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
     }
+
+    public int readContactByCity(String city) throws AddressBookException {
+            return addressBookDBService.getCountByCity(city);
+    }
+
 }

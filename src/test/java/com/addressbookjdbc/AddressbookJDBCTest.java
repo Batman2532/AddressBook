@@ -18,8 +18,8 @@ public class AddressbookJDBCTest {
     @Test
     public void givenAddressBook_WhenUpdate_ShouldSyncWithDB() throws AddressBookException {
         AddressBookService addressBookService = new AddressBookService();
-        addressBookService.updateRecord("saurabh", "mb town 2");
-        boolean result = addressBookService.checkUpdatedRecordSyncWithDatabase("saurabh");
+        addressBookService.updateRecord("john", "mb town 2");
+        boolean result = addressBookService.checkUpdatedRecordSyncWithDatabase("john");
         Assertions.assertTrue(result);
     }
 
@@ -29,8 +29,16 @@ public class AddressbookJDBCTest {
         addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
         LocalDate startDate = LocalDate.of(2020,01,02);
         LocalDate endDate = LocalDate.now();
-        List<AddressBookData> addressBookData = addressBookService.readEmployeePayrollDataForDataRange(startDate,endDate);
+        List<AddressBookData> addressBookData = addressBookService.readAddressbookDataForDataRange(startDate,endDate);
         Assertions.assertEquals(5, addressBookData.size());
+    }
+
+    @Test
+    public void givenAddressBook_WhenRetrieved_ShouldReturnCountOfCity() throws AddressBookException {
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
+        int count =addressBookService.readContactByCity("nagpur");
+        Assertions.assertEquals(1, count);
     }
 }
 
