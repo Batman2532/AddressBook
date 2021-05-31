@@ -70,10 +70,11 @@ public class AddressBookDBService {
                 String address = resultSet.getString("address");
                 String city = resultSet.getString("city");
                 String state = resultSet.getString("state");
-                BigDecimal zip = resultSet.getBigDecimal("zip");
-                BigDecimal phoneNo = resultSet.getBigDecimal("phone_number");
+                int zip = resultSet.getInt("zip");
+                int phoneNo = resultSet.getInt("phone_number");
                 String email = resultSet.getString("email");
-                addressBookData.add(new AddressBookData(firstName, lastName, address, city, state, zip, phoneNo, email));
+                LocalDate date = resultSet.getDate("date_added").toLocalDate();
+                addressBookData.add(new AddressBookData(firstName, lastName, address, city, state, zip, phoneNo, email,date));
             }
         } catch (SQLException e) {
             throw new AddressBookException(e.getMessage(), AddressBookException.ExceptionType.DATABASE_EXCEPTION);
@@ -116,5 +117,26 @@ public class AddressBookDBService {
         count = (int) addressBookData.stream().count();
 
         return count;
+    }
+
+    public AddressBookData addToAddressbook(String firstname, String lastname, String address, String city, String state, int zip, int phonenumber, String email, LocalDate date) throws AddressBookException {
+        int id = -1;
+        AddressBookData addressBookData = null;
+        String query = String.format(
+                "insert into addressbook(first_name,last_name,address,city,state,zip,phone_number,email,date_added) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')",
+                firstname, lastname, address, city, state, zip, phonenumber, email,Date.valueOf(date) );
+        try (Connection connection = this.getConnection()) {
+            Statement statement = connection.createStatement();
+            int rowChanged = statement.executeUpdate(query, statement.RETURN_GENERATED_KEYS);
+            if (rowChanged == 1) {
+                ResultSet resultSet = statement.getGeneratedKeys();
+                if (resultSet.next())
+                    id = resultSet.getInt(1);
+            }
+            addressBookData = new AddressBookData(firstname, lastname, address, city, state, zip, phonenumber, email, date);
+        } catch (SQLException e) {
+            throw new AddressBookException(e.getMessage(), AddressBookException.ExceptionType.DATABASE_EXCEPTION);
+        }
+        return addressBookData;
     }
 }

@@ -7,7 +7,9 @@
     <list default="true" id="05775293-fc78-47ab-856f-c715feb479e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" afterDir="false" />
     </list>
@@ -75,12 +77,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AddressbookJDBCTest.givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AddressbookJDBCTest.givenAddressBookDetails_WhenAdded_ShouldSyncWithDB" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest.givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest.givenAddressBookDetails_WhenAdded_ShouldSyncWithDB&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -162,10 +164,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AddressbookJDBCTest" />
+        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBookDetails_WhenAdded_ShouldSyncWithDB" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldReturnCountOfCity" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" />
-        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount" />
       </list>
     </recent_temporary>
   </component>

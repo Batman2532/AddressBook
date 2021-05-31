@@ -2,6 +2,7 @@ package com.addressbookjdbc;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AddressBookService {
@@ -49,5 +50,10 @@ public class AddressBookService {
     public int readContactByCity(String city) throws AddressBookException {
             return addressBookDBService.getCountByCity(city);
     }
+
+    public void addNewContact(String firstname, String lastname, String address, String city, String state, int zip, int phonenumber , String email, LocalDate date) throws AddressBookException {
+        addressBookList.add(addressBookDBService.addToAddressbook(firstname,lastname,address,city,state,zip,phonenumber,email,date));
+    }
+
 
 }
