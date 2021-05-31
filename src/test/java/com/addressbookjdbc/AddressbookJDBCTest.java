@@ -3,6 +3,7 @@ package com.addressbookjdbc;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class AddressbookJDBCTest {
@@ -22,4 +23,15 @@ public class AddressbookJDBCTest {
         Assertions.assertTrue(result);
     }
 
+    @Test
+    public void givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange() throws AddressBookException {
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
+        LocalDate startDate = LocalDate.of(2020,01,02);
+        LocalDate endDate = LocalDate.now();
+        List<AddressBookData> addressBookData = addressBookService.readEmployeePayrollDataForDataRange(startDate,endDate);
+        Assertions.assertEquals(5, addressBookData.size());
+    }
 }
+
+

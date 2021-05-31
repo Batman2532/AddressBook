@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05775293-fc78-47ab-856f-c715feb479e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" afterDir="false" />
     </list>
@@ -55,7 +52,7 @@
       <recent name="com.addressbookjdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressbookJDBCTest">
+  <component name="RunManager" selected="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange">
     <configuration name="AddressBookMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.addressbook.AddressBookMain" />
       <module name="AddressBook.main" />
@@ -111,6 +108,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -134,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange" />
         <item itemvalue="Gradle.AddressbookJDBCTest" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount" />
@@ -163,24 +182,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java</url>
-          <line>52</line>
-          <properties class="com.addressbookjdbc.AddressBookDBService" method="prepareAddressBookStatement">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

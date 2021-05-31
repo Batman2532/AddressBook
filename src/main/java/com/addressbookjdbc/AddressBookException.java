@@ -2,7 +2,7 @@ package com.addressbookjdbc;
 
 public class AddressBookException extends Exception {
     enum ExceptionType {
-        DATABASE_EXCEPTION,CONNECTION_FAILED
+        DATABASE_EXCEPTION,CONNECTION_FAILED, NO_SUCH_CLASS
     }
 
     public ExceptionType type;
