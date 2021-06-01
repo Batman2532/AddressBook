@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05775293-fc78-47ab-856f-c715feb479e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookDBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJDBCTest.java" afterDir="false" />
@@ -62,6 +59,27 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AddressbookJDBCTest.given3Contacts_WhenAddedToDB_ShouldMatchAddressbookEntries" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest.given3Contacts_WhenAddedToDB_ShouldMatchAddressbookEntries&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -140,34 +158,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AddressbookJDBCTest" />
+        <item itemvalue="Gradle.AddressbookJDBCTest.given3Contacts_WhenAddedToDB_ShouldMatchAddressbookEntries" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBookDetails_WhenAdded_ShouldSyncWithDB" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldReturnCountOfCity" />
         <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenRetrieved_ShouldMatchCountInGivenRange" />
-        <item itemvalue="Gradle.AddressbookJDBCTest.givenAddressBook_WhenUpdate_ShouldSyncWithDB" />
       </list>
     </recent_temporary>
   </component>

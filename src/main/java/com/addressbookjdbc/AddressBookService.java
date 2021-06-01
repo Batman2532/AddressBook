@@ -1,9 +1,7 @@
 package com.addressbookjdbc;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class AddressBookService {
 
@@ -55,5 +53,26 @@ public class AddressBookService {
         addressBookList.add(addressBookDBService.addToAddressbook(firstname,lastname,address,city,state,zip,phonenumber,email,date));
     }
 
+
+    public void addNewContactThread(List<AddressBookData> addressBookDataList) {
+        Map<Integer, Boolean> contactAdditionStatus = new HashMap<>();
+        addressBookDataList.forEach(contactsData ->{
+            Runnable task = () -> {
+                contactAdditionStatus.put(contactsData.hashCode(),false);
+                try {
+                    this.addNewContact(contactsData.firstName,contactsData.lastName,contactsData.address,contactsData.city,contactsData.state,contactsData.zip,contactsData.phoneNo,contactsData.email,contactsData.dateAdded);
+                    contactAdditionStatus.put(contactsData.hashCode(),true);
+                } catch (AddressBookException e) {
+                    e.printStackTrace();
+                }
+            };
+            Thread thread = new Thread(task,contactsData.firstName);
+            thread.start();
+        });
+        while (contactAdditionStatus.containsValue(false)){
+            try{Thread.sleep(10);
+            }catch (InterruptedException e){}
+        }
+    }
 
 }
