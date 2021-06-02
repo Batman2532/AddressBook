@@ -3,7 +3,7 @@ package com.addressbook;
 public class Contacts {
     //declaring variables
     String firstName,lastName,address,city,state,email,date;
-    int zipCode;
+    int zipCode,id;
     long phoneNumber;
     //calling constructor
     public  Contacts(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String email) {
@@ -16,7 +16,8 @@ public class Contacts {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-    public  Contacts(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String email, String date) {
+    public  Contacts(int id,String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String email, String date) {
+        this.id=id;
         this.firstName = firstName;
         this.lastName =lastName;
         this.address = address;

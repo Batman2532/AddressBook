@@ -1,13 +1,10 @@
 package com.addressbookjdbc;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class AddressBookData {
-    public String date;
-    public   int id;
+    int id;
     String firstName;
     String lastName;
     String address;
@@ -17,8 +14,9 @@ public class AddressBookData {
     int phoneNo;
     String email;
     LocalDate dateAdded;
+    String date;
     public AddressBookData(int id, String firstname, String lastname, String address, String city, String state, int zip,
-                           int phonenumber, String email) {
+                           int phonenumber, String email, String date) {
         this.id = id;
         this.firstName = firstname;
         this.lastName = lastname;
@@ -28,7 +26,7 @@ public class AddressBookData {
         this.zip = zip;
         this.phoneNo = phonenumber;
         this.email = email;
-
+        this.date=date;
     }
 
     public AddressBookData(String firstName, String lastName, String address, String city, String state, int zip, int phoneNo,
