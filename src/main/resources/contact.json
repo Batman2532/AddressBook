@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+    	"id": 1,
+      "FirstName": "saurabh",
+      "LastName": "charjan",
+      "Address": "MB town",
+      "City": "nagpur",
+      "State": "maharashtra",
+      "Zip": "440030",
+      "PhoneNo": "456789",
+      "Email": "charjan44@gmail.com",
+      "Date": "2020-06-22"
+    }
+]
+}

@@ -2,7 +2,7 @@ package com.addressbook;
 
 public class Contacts {
     //declaring variables
-    String firstName,lastName,address,city,state,email;
+    String firstName,lastName,address,city,state,email,date;
     int zipCode;
     long phoneNumber;
     //calling constructor
@@ -16,6 +16,17 @@ public class Contacts {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+    public  Contacts(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String email, String date) {
+        this.firstName = firstName;
+        this.lastName =lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
     /*
     declaring getter and setter methods for variables
      */

@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.Objects;
 
 public class AddressBookData {
+    public String date;
+    public   int id;
     String firstName;
     String lastName;
     String address;
@@ -15,11 +17,23 @@ public class AddressBookData {
     int phoneNo;
     String email;
     LocalDate dateAdded;
+    public AddressBookData(int id, String firstname, String lastname, String address, String city, String state, int zip,
+                           int phonenumber, String email) {
+        this.id = id;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNo = phonenumber;
+        this.email = email;
 
+    }
 
     public AddressBookData(String firstName, String lastName, String address, String city, String state, int zip, int phoneNo,
                            String email, LocalDate dateAdded) {
-        super();
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -29,8 +43,8 @@ public class AddressBookData {
         this.phoneNo = phoneNo;
         this.email = email;
         this.dateAdded = dateAdded;
-
     }
+
 
     public String getFirstName() {
         return firstName;

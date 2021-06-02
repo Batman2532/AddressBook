@@ -13,8 +13,8 @@ public class AddressbookJDBCTest {
     @Test
     public void givenAddressBookContactsInDB_WhenRetrieved_ShouldMatchContactsCount() throws AddressBookException {
         AddressBookService addressBookService = new AddressBookService();
-        List<AddressBookData> addressBookData = addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
-        Assertions.assertEquals(1, addressBookData.size());
+        int addressBookSize = addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
+        Assertions.assertEquals(1, addressBookSize);
     }
 
     @Test
@@ -62,8 +62,8 @@ public class AddressbookJDBCTest {
         AddressBookService addressBookService = new AddressBookService();
         addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
         addressBookService.addNewContactThread(Arrays.asList(arrayOfContacts));
-        List<AddressBookData> addressBookData = addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
-        Assertions.assertEquals(5, addressBookData.size());
+        int addressBookSize = addressBookService.readAddressBookData(AddressBookService.IOService.DB_IO);
+        Assertions.assertEquals(5, addressBookSize);
 
     }
 

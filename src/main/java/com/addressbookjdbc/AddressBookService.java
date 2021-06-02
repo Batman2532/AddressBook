@@ -6,20 +6,24 @@ import java.util.*;
 public class AddressBookService {
 
     public enum IOService {
-        DB_IO
+        DB_IO,REST_IO
     }
 
     public List<AddressBookData> addressBookList =  new ArrayList<>();
     private static AddressBookDBService addressBookDBService;
 
+    public AddressBookService(List<AddressBookData> contactsList) {
+        this();
+        this.addressBookList = new ArrayList<>(contactsList);
+    }
     public AddressBookService() {
         addressBookDBService = AddressBookDBService.getInstance();
     }
 
-    public List<AddressBookData> readAddressBookData(IOService ioservice) throws AddressBookException {
+    public int readAddressBookData(IOService ioservice) throws AddressBookException {
         if (ioservice.equals(IOService.DB_IO))
-            return this.addressBookList = addressBookDBService.readData();
-        return this.addressBookList;
+            return (this.addressBookList = addressBookDBService.readData()).size();
+        return this.addressBookList.size();
     }
 
     public void updateRecord(String firstname, String address) throws AddressBookException {
