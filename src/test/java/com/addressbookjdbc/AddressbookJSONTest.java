@@ -49,7 +49,23 @@ public class AddressbookJSONTest {
         int statusCode = response.getStatusCode();
         Assertions.assertEquals(201,statusCode);
         Contacts[] arrayOfEmployee = getContactsList();
-
         Assertions.assertEquals(2,arrayOfEmployee.length);
+    }
+    // adding multiple contacts to json server and then counting
+    @Test
+    public void givenMultipleContacts_WhenAdded_ShouldMatchCountand201ResponseAndCount()  {
+        Contacts[] arrayOfContactEntries = {
+                new Contacts(0,"sharwan", "iol", "abc", "ngp", "mh", 123455, 12324435,
+                        "sharwan@abc.com","2020-09-30"),
+                new Contacts(0,"ankur", "ghj", "bcd", "ngp", "mh", 123455, 12324435, "ankur@abc.com","2017-02-06"),
+                new Contacts(0,"bat", "dfg", "cde", "ngp", "mh", 123455, 12324435, "bittu@abc.com","2019-12-19"),
+        };
+        for (Contacts contacts : arrayOfContactEntries) {
+            Response response = addContactToJsonServer(contacts);
+            int statusCode = response.getStatusCode();
+            Assertions.assertEquals(201, statusCode);
+        }
+        Contacts[] arrayOfEmployee = getContactsList();
+        Assertions.assertEquals(5,arrayOfEmployee.length);
     }
 }
