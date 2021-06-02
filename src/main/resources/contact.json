@@ -1,18 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "FirstName": "saurabh",
-      "LastName": "charjan",
-      "Address": "MB town",
-      "City": "nagpur",
-      "State": "maharashtra",
-      "Zip": "440030",
-      "PhoneNo": "456789",
-      "Email": "charjan44@gmail.com",
-      "Date": "2020-06-22"
-    },
-    {
       "firstName": "sharwan",
       "lastName": "kumar",
       "address": "mankapur",
@@ -22,6 +10,18 @@
       "zipCode": 123455,
       "id": 2,
       "phoneNumber": 12324435
+    },
+    {
+      "firstName": "saurabh",
+      "lastName": "charjan",
+      "address": "MB town",
+      "city": "nagpur",
+      "state": "maharashtra",
+      "email": "charjan44@gmail.com",
+      "date": "2020-06-22",
+      "zipCode": 0,
+      "id": 1,
+      "phoneNumber": 0
     },
     {
       "firstName": "sharwan",

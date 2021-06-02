@@ -1,5 +1,7 @@
 package com.addressbookjdbc;
 
+import com.addressbook.Contacts;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -11,6 +13,7 @@ public class AddressBookService {
 
     public List<AddressBookData> addressBookList =  new ArrayList<>();
     private static AddressBookDBService addressBookDBService;
+    public List<Contacts> contactList = new ArrayList<>();
 
     public AddressBookService(List<AddressBookData> contactsList) {
         this();

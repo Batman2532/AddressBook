@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class AddressbookJSONTest {
 
     @BeforeAll
@@ -35,22 +37,9 @@ public class AddressbookJSONTest {
     @Test
     public void givenAddressbookDataInJSONServer_WhenRetrieved_shouldMatchTheCount()  {
         Contacts[] arrayOfContacts = getContactsList();
-        Assertions.assertEquals(1,arrayOfContacts.length);
+        Assertions.assertEquals(2,arrayOfContacts.length);
     }
 
-    //adding new contact to json server and than counting
-    @Test
-    public void givenNewEmployee_WhenAdded_ShouldMatchCountand201ResponseAndCount()
-    {
-        Contacts contacts = null;
-        contacts = new Contacts(2,"sharwan", "kumar", "mankapur", "pune", "MH", 123455, 12324435,
-                "sharwan@abc.com","2020-03-15");
-        Response response = addContactToJsonServer(contacts);
-        int statusCode = response.getStatusCode();
-        Assertions.assertEquals(201,statusCode);
-        Contacts[] arrayOfEmployee = getContactsList();
-        Assertions.assertEquals(2,arrayOfEmployee.length);
-    }
     // adding multiple contacts to json server and then counting
     @Test
     public void givenMultipleContacts_WhenAdded_ShouldMatchCountand201ResponseAndCount()  {
@@ -66,6 +55,27 @@ public class AddressbookJSONTest {
             Assertions.assertEquals(201, statusCode);
         }
         Contacts[] arrayOfEmployee = getContactsList();
-        Assertions.assertEquals(5,arrayOfEmployee.length);
+        Assertions.assertEquals(6,arrayOfEmployee.length);
+    }
+
+    //updating contact details(city) to json server
+    @Test
+    public void givenNewCityToContact_WhenUpdated_ShouldMatch200Response()
+    {
+        Contacts[] arrayOfContacts = getContactsList();
+        AddressService addressService= new AddressService(Arrays.asList(arrayOfContacts));
+
+        addressService.updateAddressBookDataJSONServer("saurabh", "nagpur");
+        Contacts contacts = addressService.getAddressBookData("saurabh");
+
+        String empJson = new Gson().toJson(contacts);
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type","application/json");
+        request.body(empJson);
+        System.out.println(contacts.getId());
+        System.out.println(contacts.getCity());
+        Response response = request.put("/contacts/"+contacts.getId());
+        int statusCode = response.getStatusCode();
+        Assertions.assertEquals(200,statusCode);
     }
 }
