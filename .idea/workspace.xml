@@ -8,8 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/Contacts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbookjdbc/AddressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/contact.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/contact.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJSONTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/addressbookjdbc/AddressbookJSONTest.java" afterDir="false" />
     </list>
@@ -108,6 +107,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AddressbookJSONTest.givenContactToDelete_WhenDeleted_ShouldMatch200Response" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJSONTest.givenContactToDelete_WhenDeleted_ShouldMatch200Response&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="AddressbookJSONTest.givenMultipleContacts_WhenAdded_ShouldMatchCountand201ResponseAndCount" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -150,34 +170,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AddressbookJSONTest.givenNewEmployee_WhenAdded_ShouldMatchCountand201ResponseAndCount" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.addressbookjdbc.AddressbookJSONTest.givenNewEmployee_WhenAdded_ShouldMatchCountand201ResponseAndCount&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AddressbookJSONTest" />
-        <item itemvalue="Gradle.AddressbookJSONTest.givenNewCityToContact_WhenUpdated_ShouldMatch200Response" />
-        <item itemvalue="Gradle.AddressbookJSONTest.givenNewEmployee_WhenAdded_ShouldMatchCountand201ResponseAndCount" />
+        <item itemvalue="Gradle.AddressbookJSONTest.givenContactToDelete_WhenDeleted_ShouldMatch200Response" />
         <item itemvalue="Gradle.AddressbookJSONTest.givenMultipleContacts_WhenAdded_ShouldMatchCountand201ResponseAndCount" />
         <item itemvalue="Gradle.AddressbookJSONTest.givenAddressbookDataInJSONServer_WhenRetrieved_shouldMatchTheCount" />
+        <item itemvalue="Gradle.AddressbookJSONTest.givenNewCityToContact_WhenUpdated_ShouldMatch200Response" />
       </list>
     </recent_temporary>
   </component>

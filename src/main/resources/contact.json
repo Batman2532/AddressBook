@@ -1,17 +1,6 @@
 {
   "contacts": [
     {
-      "firstName": "sharwan",
-      "lastName": "kumar",
-      "address": "mankapur",
-      "city": "pune",
-      "state": "MH",
-      "email": "sharwan@abc.com",
-      "zipCode": 123455,
-      "id": 2,
-      "phoneNumber": 12324435
-    },
-    {
       "firstName": "saurabh",
       "lastName": "charjan",
       "address": "MB town",
@@ -24,17 +13,6 @@
       "phoneNumber": 0
     },
     {
-      "firstName": "sharwan",
-      "lastName": "iol",
-      "address": "abc",
-      "city": "ngp",
-      "state": "mh",
-      "email": "sharwan@abc.com",
-      "zipCode": 123455,
-      "id": 3,
-      "phoneNumber": 12324435
-    },
-    {
       "firstName": "ankur",
       "lastName": "ghj",
       "address": "bcd",
@@ -42,7 +20,7 @@
       "state": "mh",
       "email": "ankur@abc.com",
       "zipCode": 123455,
-      "id": 4,
+      "id": 3,
       "phoneNumber": 12324435
     },
     {
@@ -53,7 +31,7 @@
       "state": "mh",
       "email": "bittu@abc.com",
       "zipCode": 123455,
-      "id": 5,
+      "id": 4,
       "phoneNumber": 12324435
     }
   ]

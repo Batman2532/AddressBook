@@ -13,6 +13,10 @@ public class AddressService {
         this.addressBookList = contacts;
     }
 
+    public long countEntries() {
+        return addressBookList.size();
+    }
+
     public void updateAddressBookDataJSONServer(String firstname, String city) {
         Contacts addressBookData = this.getAddressBookData(firstname);
         if (addressBookData != null) addressBookData.setCity(city);
@@ -26,4 +30,6 @@ public class AddressService {
                 .orElse(null);
         return addressBookData;
     }
+
 }
+

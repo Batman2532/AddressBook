@@ -37,7 +37,10 @@ public class AddressbookJSONTest {
     @Test
     public void givenAddressbookDataInJSONServer_WhenRetrieved_shouldMatchTheCount()  {
         Contacts[] arrayOfContacts = getContactsList();
-        Assertions.assertEquals(2,arrayOfContacts.length);
+        AddressService addressService;
+        addressService = new AddressService(Arrays.asList(arrayOfContacts));
+        long entries = addressService.countEntries();
+        Assertions.assertEquals(4,entries);
     }
 
     // adding multiple contacts to json server and then counting
@@ -54,8 +57,6 @@ public class AddressbookJSONTest {
             int statusCode = response.getStatusCode();
             Assertions.assertEquals(201, statusCode);
         }
-        Contacts[] arrayOfEmployee = getContactsList();
-        Assertions.assertEquals(6,arrayOfEmployee.length);
     }
 
     //updating contact details(city) to json server
@@ -75,6 +76,23 @@ public class AddressbookJSONTest {
         System.out.println(contacts.getId());
         System.out.println(contacts.getCity());
         Response response = request.put("/contacts/"+contacts.getId());
+        int statusCode = response.getStatusCode();
+        Assertions.assertEquals(200,statusCode);
+    }
+
+    //deleting contact from  json server
+    @Test
+    public void givenContactToDelete_WhenDeleted_ShouldMatch200Response()
+    {
+        Contacts[] arrayOfContacts = getContactsList();
+        AddressService addressService;
+        addressService = new AddressService(Arrays.asList(arrayOfContacts));
+
+        Contacts contacts = addressService.getAddressBookData("sharwan");
+
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type","application/json");
+        Response response = request.delete("/contacts/"+contacts.getId());
         int statusCode = response.getStatusCode();
         Assertions.assertEquals(200,statusCode);
     }
